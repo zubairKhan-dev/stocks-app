@@ -13,8 +13,8 @@ function Graph(props: any) {
     return (
         <LineChart
             data={props.data}
-            width={256}
-            height={256}
+            width={props.width}
+            height={props.height}
             verticalLabelRotation={30}
             chartConfig={chartConfig}
             withHorizontalLabels= {props.horizontalLabels}
@@ -22,6 +22,8 @@ function Graph(props: any) {
             withDots= {false}
             withInnerLines= {false}
             withOuterLines= {false}
+            fromZero= {true}
+            style={{margin: 0, padding: 0}}
             bezier
         />
     )
