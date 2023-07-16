@@ -1,3 +1,4 @@
+/* a component for search bar */
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Searchbar, } from 'react-native-paper';

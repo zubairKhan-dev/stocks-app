@@ -1,15 +1,20 @@
+/* dynamic graph component */
 import { LineChart } from "react-native-chart-kit";
-
-const chartConfig = {
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => 'green',
-    strokeWidth: 2,
-    barPercentage: 0.5,
-    useShadowColorFromDataset: false
-};
+import theme from "../utils/theme";
 
 function Graph(props: any) {
+
+    // configuration for graph component
+    const chartConfig = {
+        backgroundGradientFromOpacity: 0,
+        backgroundGradientToOpacity: 0,
+        color: (opacity = 1) => props.color,
+        strokeWidth: 2,
+        barPercentage: 0.5,
+        useShadowColorFromDataset: false,
+        labelColor: (opacity = 1) => theme.BLACK,
+    };
+    
     return (
         <LineChart
             data={props.data}
@@ -23,7 +28,7 @@ function Graph(props: any) {
             withInnerLines= {false}
             withOuterLines= {false}
             fromZero= {true}
-            style={{margin: 0, padding: 0}}
+            style={{paddingRight: 0}}
             bezier
         />
     )

@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import theme from "../../utils/theme";
+
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 function wp(percentage: any) {
     const value = (percentage * viewportWidth) / 100;
@@ -50,17 +51,21 @@ const styles = StyleSheet.create({
         fontSize: theme.MEDIUM_FONTS,
         color: 'white',
         marginLeft: 10,
-        marginRight: 10
+        marginRight: 10,
+        fontWeight: '500'
     },
-    card : {
+    card: {
         borderRadius: 3,
         marginHorizontal: 5,
         marginVertical: 2.5,
-        backgroundColor: theme.WHITE
+        backgroundColor: theme.WHITE,
     },
     stockSymbol: {
-        fontSize: theme.LARGE_FONTS,
+        fontSize: theme.MEDIUM_FONTS,
         fontWeight: 'bold',
+        flexWrap: 'wrap',
+        flex: 0.3
+
     },
     stockName: {
         fontSize: theme.MEDIUM_FONTS,
@@ -82,6 +87,11 @@ const styles = StyleSheet.create({
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'red',
+    },
+    cardContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 1
     }
 })
 

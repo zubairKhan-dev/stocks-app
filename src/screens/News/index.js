@@ -2,7 +2,7 @@ import {View, Text} from 'react-native'
 
 function News() {
     return(
-        <View>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>News</Text>
         </View>
     )

@@ -6,13 +6,15 @@ import { Image } from 'react-native';
 import styles from './styles';
 import theme from '../utils/theme';
 import News from '../screens/News';
+import Portfolio from '../screens/Portfolio';
 
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
     return (
         <Tab.Navigator
-            screenOptions={({ route }) => ({
+            initialRouteName='Markets' //initial screen to render
+            screenOptions={({ route }) => ({ //options to style tab navigator
                 tabBarHideOnKeyboard: true,
                 tabBarLabelPosition: "below-icon",
                 tabBarLabelStyle: styles.tabBarLabelStyle,
@@ -24,8 +26,8 @@ function BottomTabNavigator() {
             })}
         >
             <Tab.Screen
-                name="Home"
-                component={StackNavigator}
+                name="Portfolio"
+                component={Portfolio}
                 options={{
                     tabBarLabel: 'Portfolio',
                     tabBarIcon: ({ focused }) => (
@@ -37,8 +39,8 @@ function BottomTabNavigator() {
                 }}
             />
             <Tab.Screen
-                name="Settings"
-                component={ScreenTwo}
+                name="Markets"
+                component={StackNavigator}
                 options={{
                     tabBarLabel: 'Markets',
                     tabBarIcon: ({ focused }) => (

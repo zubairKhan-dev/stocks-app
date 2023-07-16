@@ -1,12 +1,13 @@
-import { View, Text, Image, FlatList, ScrollView } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import styles from './styles';
 import Graph from '../../components/Graph';
 import { getStocks } from '../../api/Stocks';
 import SearchInput from '../../components/SearchInput';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { useState } from 'react';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
-function ScreenOne() {
+function ScreenOne(props: any) {
 
     // json data
     const data = getStocks();
@@ -20,37 +21,62 @@ function ScreenOne() {
         if (item.stockSymbol.toLowerCase().includes(searchText.toLowerCase()) || item.stockName.toLowerCase().includes(searchText.toLowerCase())) {
 
             return (
-                <Card style={styles.card}>
-                    <Card.Content style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <View>
-                            <Text style={styles.stockSymbol}>{item.stockSymbol}</Text>
-                            <Text style={styles.stockName}>{item.stockName}</Text>
-                        </View>
-                        <Graph
-                            data={item.stockGraph}
-                            horizontalLabels={false}
-                            verticalLabels={false}
-                            width={100}
-                            height={100}
-                            style={{
-                                paddingTop: 0,
-                                paddingRight: 0,
-                                paddingLeft: -20,
-                            }}
-                        />
-
-
-                        <View>
-                            <Text style={styles.stockSymbol}>{item.currentPrice}</Text>
-                            <Text 
-                             style= {item.percentageGain > 0 ? styles.gain : styles.loss}
-                            >
-                                {item.percentageGain}
+                <TouchableOpacity onPress={() => {
+                    props.navigation.navigate('ScreenTwo', {
+                        stockSymbol: item.stockSymbol,
+                        stockName: item.stockName,
+                        stockGraph: item.stockGraph,
+                        currentPrice: item.currentPrice,
+                        percentageGain: item.percentageGain
+                    })
+                }}>
+                    <Card style={styles.card}>
+                        <Card.Content style={styles.cardContent}>
+                            <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                                <Text
+                                    numberOfLines={1}
+                                    ellipsizeMode='tail'
+                                    style={styles.stockSymbol}
+                                >
+                                    {item.stockSymbol}
                                 </Text>
-                        </View>
-                    </Card.Content>
-
-                </Card>
+                                <Text
+                                    numberOfLines={1}
+                                    ellipsizeMode='tail'
+                                    style={styles.stockName}
+                                >
+                                    {item.stockName}
+                                </Text>
+                            </View>
+                            <View style={{ flex: 1, alignItems: 'center' }}>
+                                <Graph
+                                    data={item.stockGraph}
+                                    horizontalLabels={false}
+                                    verticalLabels={false}
+                                    width={80}
+                                    height={80}
+                                    color={item.percentageGain > 0 ? 'green' : 'red'}
+                                />
+                            </View>
+                            <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                <Text
+                                    numberOfLines={1}
+                                    ellipsizeMode='tail'
+                                    style={styles.stockSymbol}
+                                >
+                                    {'$'}{item.currentPrice}
+                                </Text>
+                                <Text
+                                    numberOfLines={1}
+                                    ellipsizeMode='tail'
+                                    style={item.percentageGain > 0 ? styles.gain : styles.loss}
+                                >
+                                    {item.percentageGain}{'%'}
+                                </Text>
+                            </View>
+                        </Card.Content>
+                    </Card>
+                </TouchableOpacity>
             )
         }
         else {
@@ -60,7 +86,9 @@ function ScreenOne() {
     }
 
     return (
+        
         <View style={styles.container}>
+            <KeyboardAvoidingView>
             <FlatList
                 data={data.sort((a: any, b: any) => a.stockSymbol.localeCompare(b.stockSymbol))}
                 extraData={data.sort((a: any, b: any) => a.stockSymbol.localeCompare(b.stockSymbol))}
@@ -75,7 +103,6 @@ function ScreenOne() {
                         <SearchInput
                             onChangeText={
                                 (e: any) => setSearchText(e)
-
                             }
                         />
                         <ScrollView horizontal={true} >
@@ -88,7 +115,9 @@ function ScreenOne() {
                     </View>
                 }
             />
+            </KeyboardAvoidingView>
         </View>
+        
     )
 }
 

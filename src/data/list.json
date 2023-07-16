@@ -10,7 +10,7 @@
                 }
             ]
         },
-        "currentPrice": 25585.69,
+        "currentPrice": "25585.69",
         "percentageGain": -0.38
     },
     {
@@ -20,11 +20,11 @@
             "labels": ["1D", "7D", "1M", "3M", "1Y"],
             "datasets": [
                 {
-                    "data": [10,43.5,14.9,56,77.6,20,21,50,67,62,29.5]
+                    "data": [10,43.5,14.9,56,77.6,20,21,50,67,62,29.5,45]
                 }
             ]
         },
-        "currentPrice": 6648.00,
+        "currentPrice": "6648.00",
         "percentageGain": 4.22
     },
     {
@@ -38,7 +38,7 @@
                 }
             ]
         },
-        "currentPrice": 2862.06,
+        "currentPrice": "2862.06",
         "percentageGain": 13.49
     },
     {
@@ -52,7 +52,7 @@
                 }
             ]
         },
-        "currentPrice": 1514.22,
+        "currentPrice": "1514.22",
         "percentageGain": -1.01
     },
     {
@@ -66,7 +66,7 @@
                 }
             ]
         },
-        "currentPrice": 6648.00,
+        "currentPrice": "6648.00",
         "percentageGain": 2.64
     }
 ]
