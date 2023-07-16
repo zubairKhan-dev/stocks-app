@@ -4,6 +4,7 @@ import theme from '../../utils/theme'
 import styles from './styles'
 import AddButton from '../../components/AddButton'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import * as Animatable from 'react-native-animatable';
 
 function ScreenTwo(props: any) {
 
@@ -11,7 +12,8 @@ function ScreenTwo(props: any) {
     const data = props.route.params
 
     return (
-        <View style={styles.container}>
+        <Animatable.View style={styles.container} animation={'fadeIn'} delay={200}>
+            
             <View style={styles.headingContainer}>
                 <TouchableOpacity onPress={() => { props.navigation.goBack() }}>
                     <Image source={require('../../assets/images/left-arrow.png')} style={styles.backIcon} />
@@ -62,7 +64,7 @@ function ScreenTwo(props: any) {
             </View>
 
             <AddButton />
-        </View>
+        </Animatable.View>
     )
 }
 
