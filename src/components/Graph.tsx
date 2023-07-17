@@ -17,7 +17,7 @@ function Graph(props: any) {
     
     return (
         <LineChart
-            data={props.data}
+            data={props.data} //data entering the graph
             width={props.width}
             height={props.height}
             verticalLabelRotation={30}

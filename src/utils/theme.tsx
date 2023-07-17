@@ -12,7 +12,7 @@ const theme = {
     LIGHT_GRAY: "#D3D3D3",
     OFF_WHITE: "#F5F5F5",
     OFF_GRAY: "#C4C4C4",
-    DEFAULT_FONT: 'Roboto'
+    DEFAULT_FONT: 'sans-serif' // font family
 }
 
 

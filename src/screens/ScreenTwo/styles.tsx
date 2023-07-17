@@ -26,25 +26,29 @@ const styles = StyleSheet.create({
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: 'bold',
         flexWrap: 'wrap',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        fontFamily: theme.DEFAULT_FONT
     },
     stockName: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'grey',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        fontFamily: theme.DEFAULT_FONT
     },
     gain: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'green',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
+        fontFamily: theme.DEFAULT_FONT
     },
     loss: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'red',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
+        fontFamily: theme.DEFAULT_FONT
     },
     dataSet: {
         width: wp(80),
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         display: 'flex',
         justifyContent: 'space-between',
-        marginVertical: 5
+        marginVertical: 5,
     },
     headingContainer: {
         flexDirection: 'row',

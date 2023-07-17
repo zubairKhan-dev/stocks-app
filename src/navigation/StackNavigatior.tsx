@@ -1,3 +1,4 @@
+/* stack navigation component */
 import { createStackNavigator } from '@react-navigation/stack';
 import ScreenOne from '../screens/ScreenOne';
 import ScreenTwo from '../screens/ScreenTwo';

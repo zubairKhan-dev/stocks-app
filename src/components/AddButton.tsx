@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
         padding: 20,
         color: theme.WHITE,
         fontWeight: 'bold',
-        fontSize: theme.MEDIUM_FONTS
+        fontSize: theme.MEDIUM_FONTS,
+        fontFamily: theme.DEFAULT_FONT
     }
 })
 

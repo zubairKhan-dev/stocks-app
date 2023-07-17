@@ -1,11 +1,14 @@
-import { View, Text, Image, FlatList, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import styles from './styles';
 import Graph from '../../components/Graph';
 import { getStocks } from '../../api/Stocks';
 import SearchInput from '../../components/SearchInput';
-import { Card, Title, Paragraph } from 'react-native-paper';
+import { Card} from 'react-native-paper';
 import { useState } from 'react';
 import * as Animatable from 'react-native-animatable';
+import CategoryView from '../../components/CategoryView';
+import { StatusBar } from 'expo-status-bar';
+import React from "react"
 
 function ScreenOne(props: any) {
 
@@ -15,12 +18,12 @@ function ScreenOne(props: any) {
     // searched text
     const [searchText, setSearchText] = useState('');
 
-    // render list
+    // render list items
     const renderItem = ({ item }: any) => {
         if (item.stockSymbol.toLowerCase().includes(searchText.toLowerCase()) || item.stockName.toLowerCase().includes(searchText.toLowerCase())) {
 
             return (
-                <Animatable.View animation={"bounceIn"} delay={400}>
+                <Animatable.View animation={"fadeIn"} delay={400}>
                     <TouchableOpacity onPress={() => {
                         props.navigation.navigate('ScreenTwo', {
                             stockSymbol: item.stockSymbol,
@@ -87,15 +90,15 @@ function ScreenOne(props: any) {
     }
 
     return (
-
         <View style={styles.container}>
+            <StatusBar hidden={true} />
             <KeyboardAvoidingView>
                 <FlatList
                     data={data.sort((a: any, b: any) => a.stockSymbol.localeCompare(b.stockSymbol))}
                     extraData={data.sort((a: any, b: any) => a.stockSymbol.localeCompare(b.stockSymbol))}
                     renderItem={renderItem}
                     ListHeaderComponent={
-                        <Animatable.View animation={'slideInDown'} delay={200}>
+                        <View>
                             <View style={styles.headerSection}>
                                 <Image source={require('../../assets/images/menu.png')}
                                     style={styles.menuIcon} />
@@ -107,15 +110,9 @@ function ScreenOne(props: any) {
                                         (e: any) => setSearchText(e)
                                     }
                                 />
-                                <ScrollView horizontal={true} >
-                                    <Text style={styles.categoryText}>Main market</Text>
-                                    <Text style={styles.categoryText}>Junior market</Text>
-                                    <Text style={styles.categoryText}>Main market</Text>
-                                    <Text style={styles.categoryText}>FX rates</Text>
-                                    <Text style={styles.categoryText}>Funds</Text>
-                                </ScrollView>
+                                <CategoryView />
                             </View>
-                        </Animatable.View>
+                        </View>
                     }
                 />
             </KeyboardAvoidingView>
@@ -124,4 +121,4 @@ function ScreenOne(props: any) {
     )
 }
 
-export default ScreenOne
+export default React.memo(ScreenOne)

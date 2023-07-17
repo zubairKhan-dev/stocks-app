@@ -46,14 +46,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         marginVertical: 30
     },
-    categoryText: {
-        padding: 10,
-        fontSize: theme.MEDIUM_FONTS,
-        color: 'white',
-        marginLeft: 10,
-        marginRight: 10,
-        fontWeight: '500'
-    },
     card: {
         borderRadius: 3,
         marginHorizontal: 5,
@@ -64,29 +56,34 @@ const styles = StyleSheet.create({
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: 'bold',
         flexWrap: 'wrap',
-        flex: 0.3
+        flex: 0.3,
+        fontFamily: theme.DEFAULT_FONT
 
     },
     stockName: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'grey',
+        fontFamily: theme.DEFAULT_FONT
     },
     heading: {
         fontSize: theme.LARGE_FONTS,
         fontWeight: 'bold',
         color: theme.WHITE,
-        marginLeft: 20
+        marginLeft: 20,
+        fontFamily: theme.DEFAULT_FONT
     },
     gain: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'green',
+        fontFamily: theme.DEFAULT_FONT
     },
     loss: {
         fontSize: theme.MEDIUM_FONTS,
         fontWeight: '500',
         color: 'red',
+        fontFamily: theme.DEFAULT_FONT
     },
     cardContent: {
         flexDirection: 'row',

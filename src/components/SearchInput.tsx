@@ -14,7 +14,7 @@ const SearchInput = (props: any) => {
       style= {styles.searchBar}
       iconColor='#FFFFFF'
       placeholderTextColor='#FFFFFF'
-      inputStyle= {{color: 'white'}}
+      inputStyle= {{color: 'white', fontFamily: theme.DEFAULT_FONT}}
     />
   );
 };

@@ -1,10 +1,10 @@
-import { View, Text, Dimensions, Image, ScrollView } from 'react-native'
+import { View, Text, Dimensions, Image} from 'react-native'
 import Graph from '../../components/Graph'
-import theme from '../../utils/theme'
 import styles from './styles'
 import AddButton from '../../components/AddButton'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import * as Animatable from 'react-native-animatable';
+import React from "react"
 
 function ScreenTwo(props: any) {
 
@@ -13,7 +13,7 @@ function ScreenTwo(props: any) {
 
     return (
         <Animatable.View style={styles.container} animation={'fadeIn'} delay={200}>
-            
+
             <View style={styles.headingContainer}>
                 <TouchableOpacity onPress={() => { props.navigation.goBack() }}>
                     <Image source={require('../../assets/images/left-arrow.png')} style={styles.backIcon} />
@@ -34,7 +34,7 @@ function ScreenTwo(props: any) {
                     data={data.stockGraph}
                     horizontalLabels={true}
                     verticalLabels={true}
-                    color={theme.BLACK}
+                    color={data.percentageGain > 0 ? 'green' : 'red'}
                     height={Dimensions.get('window').height * 0.3}
                     width={Dimensions.get('window').width}
                 />
@@ -68,4 +68,4 @@ function ScreenTwo(props: any) {
     )
 }
 
-export default ScreenTwo
+export default React.memo(ScreenTwo)

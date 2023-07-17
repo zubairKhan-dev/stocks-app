@@ -1,6 +1,5 @@
+/* bottom tab navigation compnent */
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ScreenOne from '../screens/ScreenOne';
-import ScreenTwo from '../screens/ScreenTwo';
 import StackNavigator from './StackNavigatior';
 import { Image } from 'react-native';
 import styles from './styles';
@@ -8,7 +7,7 @@ import theme from '../utils/theme';
 import News from '../screens/News';
 import Portfolio from '../screens/Portfolio';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator(); 
 
 function BottomTabNavigator() {
     return (
