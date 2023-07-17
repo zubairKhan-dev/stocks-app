@@ -2,6 +2,7 @@
 
 # Getting started with
 - npx create-expo-app --template
+- npx expo start
 
 # Build commands
 - expo build
