@@ -1,5 +1,9 @@
 # stocks-app
 
+# Getting started with
+- npx create-expo-app --template
+
+# Build commands
 - expo build
 - expo build:android
 - expo build:ios 
