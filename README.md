@@ -1,4 +1,4 @@
-# stocks-app
+# Stocks-App
 
 # Getting started with
 - npx create-expo-app --template
